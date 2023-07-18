@@ -7,6 +7,11 @@ return [
             'archives' => 'Archives',
             'settings' => 'Settings',
         ],
+
+        'user_menu' => [
+            'lock_screen' => 'Lock Screnn',
+            'settings' => 'Edit Profile'
+        ],
         'dashboard' => 'Dashboard',
     ],
 
