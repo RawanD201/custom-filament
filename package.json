@@ -1,4 +1,5 @@
 {
+    "name": "@rawand201/custom-filament",
     "private": true,
     "scripts": {
         "dev": "vite",
