@@ -2,7 +2,11 @@
 # custom-filament
 
 # archive-traffic-online
-- a simple archiving application for archiving `import` and `export` documents for traffic purpose.
+
+- a simple custom template using `Filament` include:
+  - Register user.
+  - `Active` and `Deactive` users.
+  - Activity logs and Exception packages.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/41773797/131910226-676cb28a-332d-4162-a6a8-136a93d5a70f.png" alt="Banner" style="width: 100%; max-width: 800px;" />
