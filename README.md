@@ -1,7 +1,5 @@
 
 # custom-filament
-
-# archive-traffic-online
 - a simple custom template using `Filament` include:
   
   - Register user.
