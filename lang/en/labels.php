@@ -9,7 +9,7 @@ return [
         ],
 
         'user_menu' => [
-            'lock_screen' => 'Lock Screnn',
+            'lock_screen' => 'Lock Screen',
             'settings' => 'Edit Profile'
         ],
         'dashboard' => 'Dashboard',
