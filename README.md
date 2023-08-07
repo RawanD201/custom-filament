@@ -1,8 +1,8 @@
 
 # custom-filament
-- a simple custom template using `Filament` include:
+- a simple custom template using `Filament V.2` include:
   
-  - Registering users.
+  - Registering users by `username` and `password`.
   - user can update profile.
   - `Active` and `Deactive` users.
   - `Activity logs` and `Exception` and `Screenlock` packages.
