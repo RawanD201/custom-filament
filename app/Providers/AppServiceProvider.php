@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Filament\Facades\Filament;
+use Illuminate\Support\Facades\Gate;
 use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,7 +32,18 @@ class AppServiceProvider extends ServiceProvider
             Filament::registerViteTheme('resources/css/filament.css');
             Filament::registerUserMenuItems($this->getUserMenu());
         });
+
+
+        Gate::define('create-backup', function () {
+            return \auth()->user();
+        });
+
+        Gate::define('download-backup', function () {
+            return \auth()->user();
+        });
     }
+
+
 
 
     private function getUserMenu()
