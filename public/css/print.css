@@ -1,0 +1,183 @@
+html:where([dir="rtl"]) :is(header),
+.always-ltr {
+    direction: ltr !important;
+}
+
+html:where([dir="rtl"]) :is(header .content) {
+    direction: rtl;
+}
+
+html:where([dir="rtl"]) :is(header .container-content) {
+    justify-content: space-between;
+}
+
+* {
+    font-family: nrt;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.\!print-color-exact {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+.\!bg-\[\#AB823A\] {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(57 86 35 / var(--tw-bg-opacity)) !important;
+}
+
+.\!bg-\[\#757070\] {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(117 112 112 / var(--tw-bg-opacity)) !important;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+[dir="rtl"] .rtl\:justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-self-center {
+    justify-self: center;
+}
+
+.gap-1 {
+    gap: 0.25rem /* 4px */;
+}
+
+.gap-2 {
+    gap: 0.5rem /* 8px */;
+}
+
+.gap-4 {
+    gap: 1rem /* 16px */;
+}
+
+.text-2xl {
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+[dir="rtl"] .rtl\:text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.mt-4 {
+    margin-top: 1rem /* 16px */;
+}
+
+.mt-8 {
+    margin-top: 2rem /* 32px */;
+}
+
+.mb-4 {
+    margin-bottom: 1rem /* 16px */;
+}
+
+.my-4 {
+    margin-top: 1rem /* 16px */;
+    margin-bottom: 1rem /* 16px */;
+}
+
+.h-1\/2 {
+    height: 50%;
+}
+
+.w-32 {
+    width: 8rem /* 128px */;
+}
+.h-full {
+    height: 100%;
+}
+
+.h-4 {
+    height: 1rem /* 16px */;
+}
+
+.h-12 {
+    height: 3rem /* 48px */;
+}
+
+.h-16 {
+    height: 4rem /* 64px */;
+}
+
+.w-1\/2 {
+    width: 50%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-2 {
+    width: 0.5rem /* 8px */;
+}
+
+.w-28 {
+    width: 7rem /* 112px */;
+}
+
+.w-32 {
+    width: 8rem /* 128px */;
+}
+
+tbody td {
+    text-align: center;
+}
+
+thead tr th {
+    background-color: #1b97d5;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 250px;
+    height: 150px;
+    object-fit: contain;
+}

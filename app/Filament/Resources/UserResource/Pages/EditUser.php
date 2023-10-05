@@ -6,6 +6,7 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\Page;
 use Filament\Forms\Components\Card;
 use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\Select;
 use App\Filament\Resources\UserResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -14,16 +15,14 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Forms\Components\TextInput\Mask;
 
+
 class EditUser extends EditRecord
 {
 
-    // use UserResource\HandleRecord;
 
     protected static string $resource = UserResource::class;
 
     protected ?string $maxContentWidth = 'full';
-
-    // protected static string $view = 'filament.resources.pages.user-edit-record';
 
 
 
@@ -41,6 +40,13 @@ class EditUser extends EditRecord
                         ->label(__('attr.username'))
                         ->minLength(2)
                         ->maxLength(255)
+                        ->required(),
+                    Select::make('roles')
+                        ->label(__('attr.role'))
+                        ->relationship('roles', 'name')
+                        ->multiple()
+                        ->preload()
+                        ->reactive()
                         ->required(),
                     DatePicker::make('birthday')
                         ->label(__('attr.birthday'))
@@ -60,13 +66,11 @@ class EditUser extends EditRecord
                         ->password()
                         ->disableAutocomplete()
                         ->same('passwordConfirmation')
-                        ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
-                        ->dehydrated(fn ($state) => filled($state))
-                        ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
+                        ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                        ->dehydrated(fn ($state) => filled($state)),
                     TextInput::make('passwordConfirmation')
                         ->label(__('attr.passwordCon'))
                         ->password()
-                        ->required()
                         ->disableAutocomplete()
                         ->dehydrated(false)
 
@@ -107,7 +111,6 @@ class EditUser extends EditRecord
         ];
     }
 
-
     protected function getFormActions(): array
     {
         return [
@@ -118,6 +121,11 @@ class EditUser extends EditRecord
 
     protected function getTitle(): string
     {
-        return __('labels.users.edit');
+        return trans_choice('user', 2);
+    }
+
+    public function getModelLabel(): string
+    {
+        return trans_choice('user', 1);
     }
 }

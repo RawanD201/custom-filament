@@ -60,7 +60,7 @@ return [
             ],
 
             'navigation' => [
-                'group' => 'Settings',
+                'group' => 'labels.nav.group.settings',
                 'label' => 'باکئەپ',
             ],
         ],

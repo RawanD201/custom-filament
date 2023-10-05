@@ -6,6 +6,11 @@ use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Gate;
 use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Health\Facades\Health;
+use Filament\Navigation\NavigationGroup;
+use Spatie\Health\Checks\Checks\DebugModeCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+use Spatie\Health\Checks\Checks\OptimizedAppCheck;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +36,39 @@ class AppServiceProvider extends ServiceProvider
             // Using Vite
             Filament::registerViteTheme('resources/css/filament.css');
             Filament::registerUserMenuItems($this->getUserMenu());
+
+            // Navigation Group
+            Filament::registerNavigationGroups([
+                NavigationGroup::make()
+                    ->label('labels.nav.group.buy')
+                    ->icon('heroicon-s-view-list')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.management')
+                    ->icon('heroicon-s-view-list')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.sell')
+                    ->icon('heroicon-s-view-list')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.expenses')
+                    ->icon('heroicon-s-clipboard')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.report')
+                    ->icon('heroicon-s-document-duplicate')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.loans')
+                    ->icon('heroicon-s-clipboard')
+                    ->collapsible(),
+                NavigationGroup::make()
+                    ->label('labels.nav.group.settings')
+                    ->icon('heroicon-s-cog')
+                    ->collapsible(),
+
+            ]);
         });
 
 
@@ -41,6 +79,12 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('download-backup', function () {
             return \auth()->user();
         });
+
+        Health::checks([
+            OptimizedAppCheck::new(),
+            DebugModeCheck::new(),
+            EnvironmentCheck::new(),
+        ]);
     }
 
 

@@ -6,7 +6,7 @@ return [
         'model' => 'Exception',
         'model_plural' => 'Exceptions',
         'navigation' => 'Exception',
-        'navigation_group' => 'Settings',
+        'navigation_group' => 'labels.nav.group.settings',
 
         'pills' => [
             'exception' => 'Exception',

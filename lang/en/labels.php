@@ -1,53 +1,36 @@
 <?php
 
 return [
+
+    'app.name' => 'Apsoft',
+    'dashboard' => 'Dashboard',
     'nav' => [
         'group' => [
+            'buy' => 'Buy',
+            'sell' => 'Sell',
             'management' => 'Management',
-            'archives' => 'Archives',
             'settings' => 'Settings',
+            'expenses' => 'Expenses',
+            'loans' => 'Loan Reports',
+            'report' => 'Reports',
         ],
 
         'user_menu' => [
             'lock_screen' => 'Lock Screen',
-            'settings' => 'Edit Profile'
+            'settings' => 'Settings',
         ],
         'dashboard' => 'Dashboard',
     ],
 
     'users' => [
-        'list' => 'Manage User',
-        'create' => 'Create User',
+        'list' => 'Users',
+        'create' => 'New User',
         'edit' => 'Edit User',
     ],
 
-    'departments' => [
-        'list' => ' Manage Department',
-        'create' => ' Create Department',
-        'edit' => 'Edit Department'
-    ],
-
-    'exports' => [
-        'list' => ' Manage Export',
-        'create' => 'Create Export',
-        'edit' => 'Edit Export'
-    ],
-
-    'responses' => [
-        'list' => 'Responses',
-        'create' => 'Create Response',
-    ],
-
-    'imports' => [
-        'list' => ' Manage Import',
-        'create' => 'Create Import',
-        'edit' => 'Edit Import'
-    ],
-
     'type' => [
-        'waiting' => 'Waitntig',
-        'approve' => 'Approved',
-        'normal' => 'Normal',
+        'waiting' => 'Waiting',
+        'approve' => 'Approve',
     ],
 
     'notify' => [
@@ -55,54 +38,75 @@ return [
         'deactivate' => 'User account has been deactivated',
     ],
 
+    "expense" => [
+        "type" => [
+            "public" => "Public",
+            "private" => "Private",
+            "shared" => "Shared",
+        ]
+    ],
 
-    // 'modal' => [
-    //     'timeoff_request' => [
-    //         'approve' => [
-    //             'title' => 'Approve Request',
-    //             'body' => 'Are you sure you would like to approve the request? This decision is final and cannot be undone.',
-    //             'confirm' => 'Confirm to Approve',
-    //         ],
-    //         'reject' => [
-    //             'title' => 'Reject Request',
-    //             'body' => 'Are you sure you would like to reject the request? This decision is final and cannot be undone.',
-    //             'confirm' => 'Confirm to Reject',
-    //         ],
-    //         'forward' => [
-    //             'title' => 'Forward Request',
-    //             'body' => 'Are you sure you would like to forward the request? This decision is final and cannot be undone.',
-    //             'confirm' => 'Confirm to Forward',
-    //         ],
-    //     ],
-    //     'document' => [
-    //         'confirm' => [
-    //             'title' => 'Confirm Document',
-    //             'body' => 'Are you sure you would like to confirm and process the document? This decision is final and cannot be undone.',
-    //             'confirm' => 'Confirm',
-    //         ],
-    //     ],
 
-    // ],
+    'customer' => [
+        'type' =>
+        [
+            'sell' => 'Sell',
+            'buy' => 'Buy',
+            'sell_and_buy' => 'Sell and Buy',
+        ],
+        'payment' => [
+            'cash' => 'Cash',
+            'loan' => 'Loan',
+        ],
+    ],
 
-    // 'notify' => [
-    //     'approved' => ':Model has been approved. Sender has been notified!',
-    //     'rejected' => ':Model has been rejected. Sender has been notified!',
-    //     'forward' => ':Model has been forwarded. Sender has been notified!',
-    //     'submit' => ':Model has been submitted',
-    //     'add' => ':Model added successfully',
-    //     'create' => ':Model created successfully',
-    //     'edit' => ':Model updated successfully',
-    //     'delete' => ':Model deleted successfully',
-    //     'activate' => 'User account has been activated',
-    //     'deactivate' => 'User account has been deactivated',
-    //     'insufficient_permission' => [
-    //         'title' => 'Insufficient Permissions',
-    //         'body' => 'You don\'t have proper permissions to make this change! Please contact your supervisor.',
-    //     ],
-    //     'monthly_salary' => [
-    //         'fail_generate_list' => 'Please fill date and branch fields.',
-    //     ],
-    // ],
+    'modal' => [
+        'timeoff_request' => [
+            'approve' => [
+                'title' => 'Approve Request',
+                'body' => 'Are you sure you would like to approve the request? This decision is final and cannot be undone.',
+                'confirm' => 'Confirm to Approve',
+            ],
+            'reject' => [
+                'title' => 'Reject Request',
+                'body' => 'Are you sure you would like to reject the request? This decision is final and cannot be undone.',
+                'confirm' => 'Confirm to Reject',
+            ],
+            'forward' => [
+                'title' => 'Forward Request',
+                'body' => 'Are you sure you would like to forward the request? This decision is final and cannot be undone.',
+                'confirm' => 'Confirm to Forward',
+            ],
+        ],
+        'document' => [
+            'confirm' => [
+                'title' => 'Confirm Document',
+                'body' => 'Are you sure you would like to confirm and process the document? This decision is final and cannot be undone.',
+                'confirm' => 'Confirm',
+            ],
+        ],
+
+    ],
+
+    'notify' => [
+        'approved' => ':Model has been approved. Sender has been notified!',
+        'rejected' => ':Model has been rejected. Sender has been notified!',
+        'forward' => ':Model has been forwarded. Sender has been notified!',
+        'submit' => ':Model has been submitted',
+        'add' => ':Model added successfully',
+        'create' => ':Model created successfully',
+        'edit' => ':Model updated successfully',
+        'delete' => ':Model deleted successfully',
+        'activate' => 'User account has been activated',
+        'deactivate' => 'User account has been deactivated',
+        'insufficient_permission' => [
+            'title' => 'Insufficient Permissions',
+            'body' => 'You don\'t have proper permissions to make this change! Please contact your supervisor.',
+        ],
+        'monthly_salary' => [
+            'fail_generate_list' => 'Please fill date and branch fields.',
+        ],
+    ],
     'user_notification' => [
         'timeoff_request' => [
             'request_title' => ':user has submitted a new request!',
@@ -165,6 +169,51 @@ return [
             'title' => '503 Maintenance',
             'page_title' => '503 Service is Under Maintenance!',
             'description' => 'Please wait until the maintenance is done.',
+        ],
+    ],
+
+
+    'report' => [
+        'header' => [
+            'heading' => 'APsoft Company',
+            'subheading' => 'For Technology and Consultation',
+        ],
+        'footer' => [
+            'address' => 'Location: Sulaimani - Kirkuk Street/Sulaimani - Pak City 46001 As Sulaymaniyah, Iraq',
+            'tel' => 'Phone Number: 07700790009 - 0773 058 6670',
+            'email' => 'Email: contact@ap-soft.tech',
+        ],
+        'invoice' => [
+            'invoice_id' => 'Invoice Number',
+            "customer" => "Customer Name",
+            "price" => "Price",
+            "type" => "Invoice Type",
+            "comment" => "Comment",
+            "installments" => "Total Installments",
+            "date" => "Buy Date",
+            "total" => "Total",
+            "discount" => "Discount",
+            "after_discount" => "After Discount",
+            "upfront_payment" => "Upfront Payment",
+            "loan_after_payment" => "Loan After Payment",
+            "total_old_loan" => "Total Old Loan",
+            "total_loan" => "Total Loan",
+            "printer_person" => "Printed By",
+            "printer_date" => "Printed Date",
+            "dollar_to_dinar" => "Total Invoice in Dinar",
+            "daily_dollar" => "Daily Dollar Rate",
+            "pays" => "Total Pays",
+            "recives" => "Total Recives",
+            "buyLoans" => "Total Buy Loans",
+            "sellLoans" => "Total Sell Loans",
+        ],
+        "contract" => [
+            "owner" => "Fist side: Ali Hama Amin Mohammed Saeed, New Authorized Manager of Construction/Primary Works",
+            "other_side" => "The second side:",
+            "location" => "Location:",
+            "phone" => "Phone Number:",
+            "type" => "Type of work:",
+            "contract_title" => "Both sides have agreed on the following points:",
         ],
     ],
 

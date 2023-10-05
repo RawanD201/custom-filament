@@ -2,35 +2,33 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
 use App\Models\User;
 use Filament\Tables;
-use Filament\Pages\Page;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use AlperenErsoy\FilamentExport\Actions;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Forms\Components\DatePicker;
-use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Resources\Pages\CreateRecord;
 use Filament\Tables\Filters\TernaryFilter;
-use Phpsa\FilamentPasswordReveal\Password;
 use Filament\Forms\Components\TextInput\Mask;
 use App\Filament\Resources\UserResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UserResource\Pages\CreateUser;
-use App\Filament\Resources\UserResource\RelationManagers;
+
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    protected static ?string $navigationGroup = 'labels.nav.group.settings';
+
+
 
     protected static ?string $slug = 'users';
 
@@ -58,6 +56,13 @@ class UserResource extends Resource
                             ->default(now())
                             ->displayFormat('d/m/Y')
                             ->required(),
+                        Select::make('roles')
+                            ->label(__('attr.role'))
+                            ->relationship('roles', 'name')
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
                         TextInput::make('phone')
                             ->label(__('attr.phone'))
                             ->tel()
@@ -74,7 +79,6 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                // TextColumn::make('id')->sortable()->searchable(),
                 TextColumn::make('index')
                     ->label(__('attr.index'))
                     ->toggleable()
@@ -119,6 +123,12 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable()
                     ->searchable(),
+                BadgeColumn::make('roles.name')
+                    ->label(__('attr.role'))
+                    ->color('primary')
+                    ->sortable()
+                    ->toggleable()
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->label(__('attr.created_at'))
                     ->dateTime('d/m/Y H:i:s')
@@ -132,6 +142,7 @@ class UserResource extends Resource
                     ->toggleable()
                     ->searchable(),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 TernaryFilter::make('is_active')
                     ->label(__('attr.status'))
@@ -142,6 +153,13 @@ class UserResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                Actions\FilamentExportBulkAction::make('export')
+                    ->label(__('actions.export'))
+                    ->extraViewData([
+                        'getPageHeader' => fn () => static::getTitle(),
+                    ])
+                    ->disablePdf(),
+
             ]);
     }
 
@@ -161,19 +179,31 @@ class UserResource extends Resource
         ];
     }
 
+    protected static function getTitle(): string
+    {
+        return trans_choice('user', 1);
+    }
+
     protected static function getNavigationLabel(): string
     {
-        return __('labels.users.list');
+        return static::getTitle();
     }
 
-    protected function getTitle(): string
+    public static function getPluralModelLabel(): string
     {
-        return __('labels.users.list');
+        return static::getTitle();
     }
 
+    // public static function getGloballySearchableAttributes(): array
+    // {
+    //     return ['title', 'comment'];
+    // }
 
-    public static function getPluralLabel(): string
-    {
-        return __('labels.departments.list');
-    }
+    // public static function getGlobalSearchResultDetails(Model $record): array
+    // {
+    //     return [
+    //         __('attr.expense.title') => $record->title,
+    //         __('attr.comment') => $record->comment,
+    //     ];
+    // }
 }

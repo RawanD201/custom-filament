@@ -74,6 +74,7 @@ return [
     */
 
     'brand' => env('APP_NAME'),
+    'brand_image' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +107,7 @@ return [
         'namespace' => 'App\\Filament\\Pages',
         'path' => app_path('Filament/Pages'),
         'register' => [
-            Pages\Dashboard::class,
+            // Pages\Dashboard::class,
         ],
     ],
 

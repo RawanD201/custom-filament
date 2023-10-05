@@ -1,12 +1,12 @@
 {
-    "name": "@rawand201/custom-filament",
+    "name": "@rawand201/nwekar",
     "license": "MIT",
     "private": true,
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "clear": "php artisan clear && php artisan clear-compiled && php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan route:clear && php artisan optimize && composer dump-autoload -o",
-        "fresh": "php artisan migrate:fresh --seed",
+        "fresh": "php artisan migrate:fresh --seed && php artisan shield:super-admin && php artisan shield:install --fresh ",
         "storage:link": "php artisan storage:link"
     },
     "devDependencies": {

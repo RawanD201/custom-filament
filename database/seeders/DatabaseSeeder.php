@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use FontLib\Table\Type\name;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,12 +19,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        \App\Models\User::factory(1)->create();
+        Role::create(['name' => 'Super Admin']);
 
-        \App\Models\User::factory()->createOne([
-            'fullname' => 'admin',
-            'username' => 'admin',
+        $admin = \App\Models\User::factory()->createOne([
+            'fullname' => 'apadmin',
+            'username' => 'apadmin',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ]);
+
+        $admin->assignRole('Super Admin');
     }
 }

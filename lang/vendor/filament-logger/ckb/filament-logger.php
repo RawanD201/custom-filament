@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Settings',
+    'nav.group' => 'labels.nav.group.settings',
     'nav.log.label' => 'کردارەکان',
     'nav.log.icon' => 'heroicon-o-clipboard-list',
     'resource.label.log' => 'کردار',

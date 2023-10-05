@@ -50,5 +50,11 @@ return [
             'native' => 'کوردی',
             'flag_code' => '',
         ],
+        'ar' => [
+            'name' => 'Arabic',
+            'script' => 'Arab',
+            'native' => 'العربية',
+            'flag_code' => 'iq',
+        ],
     ],
 ];

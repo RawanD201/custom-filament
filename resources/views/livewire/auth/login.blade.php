@@ -1,5 +1,6 @@
 <form class="space-y-8" wire:submit.prevent="authenticate">
 
+
     @error('error')
         <div>
             <span class="text-danger-500">
