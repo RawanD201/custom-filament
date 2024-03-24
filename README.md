@@ -23,4 +23,4 @@
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+This repository is under [GNU General Public License v3](/LICENSE).
